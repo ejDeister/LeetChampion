@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from . import forms
 
+#TODO: The current task is to successfully implement a PoC for LeetCode's API.
+# This will be just a simple textbox with a submit button and success/error messages.
+# Running and submitting should be supported.
+
 # Define a default view (header, navbar, footer etc.) that content will be injected into
 def index(request):
     return render(request, 'index.html')
@@ -19,7 +23,7 @@ def lobby(request):
     return render(request, 'lobby.html')
 
 # Define a view to get an LC problem
-def get_poblem(request):
+def get_problem(request):
     return render(request, 'get-problem.html')
 
 # Define a view to run a solution to an LC problem
