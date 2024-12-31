@@ -1,0 +1,30 @@
+<!-- Output area for this code -->
+<div id="navbar-output">
+
+</div>
+
+<!-- A handlebars template for a basic navbar (compete, host, etc.) -->
+ {%raw%}
+<script id="navbar-template" type="text/x-handlebars-template">
+  <div class='navbar'></div>
+</script>
+{%endraw%}
+
+<!-- Code to render the template -->
+ {%raw%}
+<script>
+  const source = document.getElementById('navbar-template').innerHTML;
+  const template = Handlebars.compile(source);
+  const context = {}; // Change context to relevant template variables
+  const html = template(context);
+  document.getElementById('navbar-output').innerHTML = html; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code-->
+<style>
+  <!-- TODO: Placeholder -->
+  #navbar {
+    color: black;
+  }
+</style>

@@ -1,0 +1,48 @@
+<!-- Output area for this code -->
+<div id="editor-master">
+    <div class="row" id="editor-output">
+
+    </div>
+    <div class="row">{% include "compete/includes/editor/stats.html" %}</div>
+</div>
+
+<!-- A handlebars template for a code editor via CodeMirror -->
+{%raw%}
+<script id="editor-template" type="text/x-handlebars-template">
+    <div class='col-{{ colSize }}' id='editor-div'> <!--TODO: Figure out how to handle duplicate IDs-->
+        <textarea name="code" id="editor-textarea"></textarea>
+    </div>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor-textarea"), {
+            lineNumbers: true,
+            mode: "{{ language }}",
+            indentUnit: {{ indentUnit }},
+            tabSize: {{ tabSize }},
+            smartIndent: true,
+            showCursorWhenSelecting: true,
+            extraKeys: {"Ctrl-Space": "autocomplete"},
+            lineWrapping: true,
+            theme: "{{ theme }}"
+        });
+    </script>
+</script>
+{%endraw%}
+
+<!-- Code to render the template -->
+ {%raw%}
+<script>
+    const source = document.getElementById('code-editor').innerHTML;
+    const template = Handlebars.compile(source);
+    const context = { size: 6 }; // Change how col size is determined to make the website responsive
+    const html = template(context);
+    document.getElementById('output').innerHTML = html; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code -->
+<style>
+    .CodeMirror {
+        border: 4px solid #444444;
+        border-radius: 4px;
+    }
+</style>

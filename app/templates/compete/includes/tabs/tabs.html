@@ -1,0 +1,33 @@
+<!-- Output area for this code -->
+<div id="tabs-master">
+  <div class="row">{% include "compete/includes/tabs/mininav.html" %}</div>
+  <div class="row" id="tabs-output">
+
+  </div>
+</div>
+
+<!-- A handlebars template to display info about the problem (e.g. description, testcases, etc.)-->
+ {%raw%}
+<script id="tabs-template" type="text/x-handlebars-template">
+  <div class='tabs'></div>
+</script>
+{%endraw%}
+
+<!-- Code to render the template-->
+ {%raw%}
+<script>
+  const source = document.getElementById('tabs-template').innerHTML;
+  const template = Handlebars.compile(source);
+  const context = {}; // Change context to relevant template variables
+  const html = template(context);
+  document.getElementById('tabs-output').innerHTML = html; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code-->
+<style>
+  <!-- TODO: Placeholder -->
+  #tabs {
+    color: black;
+  }
+</style>

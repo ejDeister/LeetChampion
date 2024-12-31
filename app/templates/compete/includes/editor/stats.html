@@ -1,0 +1,30 @@
+<!-- Output area for this code -->
+<div id="stats-output">
+    
+</div>
+
+<!-- A handlebars template of the competitor's stats (number of submits, runs, time left, etc.) -->
+ {%raw%}
+<script id="stats-template" type="text/x-handlebars-template">
+  <div class='stats'></div>
+</script>
+{%endraw%}
+
+<!-- Code to render the template -->
+ {%raw%}
+<script>
+  const source = document.getElementById('stats-template').innerHTML;
+  const template = Handlebars.compile(source);
+  const context = {}; // Change context to relevant template variables
+  const html = template(context);
+  document.getElementById('stats-output').innerHTML = html; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code -->
+<style>
+  <!-- TODO: Placeholder -->
+  #stats {
+    color: black;
+  }
+</style>

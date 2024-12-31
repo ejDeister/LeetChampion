@@ -1,0 +1,36 @@
+<!-- Output area for this code -->
+<div id="competitor-output">
+    <div class="row">
+        {% include "compete/includes/navbar.html" %}
+    </div>
+    <div class="row">
+        <div class="col-5">{% include "compete/includes/tabs/tabs.html" %}</div>
+        <div class="col-7">{% include "compete/includes/editor/editor.html" %}</div>
+    </div>
+</div>
+
+<!-- A handlebars template for the competitor page -->
+ {%raw%}
+<script id="competitor-template" type="text/x-handlebars-template">
+  <div class='competitor'></div>
+</script>
+{%endraw%}
+
+<!-- Code to render this template (raw so Jinja doesn't interfere)-->
+ {%raw%}
+<script>
+  const source = document.getElementById('competitor-template').innerHTML;
+  const template = Handlebars.compile(source);
+  const context = {}; // Change context to relevant template variables
+  const html = template(context);
+  document.getElementById('competitor-output').innerHTML = html; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code -->
+<style>
+  <!-- TODO: Placeholder -->
+  #competitor {
+    color: black;
+  }
+</style>
