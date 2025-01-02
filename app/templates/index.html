@@ -20,11 +20,19 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 <body>
-    <div class="container">
-        {% include "compete/includes/editor/editor.html" %}
-
+    <div class="container" id="main">
+        {% include "compete/competitor.html" %}
     </div>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
         body {
             background-color: #111111;
         }

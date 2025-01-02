@@ -4,27 +4,34 @@
 </div>
 
 <!-- A handlebars template of the competitor's stats (number of submits, runs, time left, etc.) -->
- {%raw%}
+{%raw%}
 <script id="stats-template" type="text/x-handlebars-template">
-  <div class='stats'></div>
+    <span>Attempts - 3</span>
+    <span>Time left - 5:00</span>
+    <button type="submit" class="btn btn-success d-inline">Run</button>
 </script>
 {%endraw%}
 
 <!-- Code to render the template -->
- {%raw%}
+{%raw%}
 <script>
-  const source = document.getElementById('stats-template').innerHTML;
-  const template = Handlebars.compile(source);
-  const context = {}; // Change context to relevant template variables
-  const html = template(context);
-  document.getElementById('stats-output').innerHTML = html; // Probably look into a better way of doing this?
+    const statsSource = document.getElementById('stats-template').innerHTML;
+    const statsTemplate = Handlebars.compile(statsSource);
+    const statsContext = {}; // Change context to relevant template variables
+    const statsHtml = statsTemplate(statsContext);
+    document.getElementById('stats-output').innerHTML += statsHtml; // Probably look into a better way of doing this?
 </script>
 {%endraw%}
 
 <!-- Styling for this block of code -->
 <style>
-  <!-- TODO: Placeholder -->
-  #stats {
-    color: black;
-  }
+    #stats-output {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: #a9b7c6;
+        background-color: #2b2b2b;
+        min-height: 10vh;
+        border-top: 4px solid #444444;
+    }
 </style>
