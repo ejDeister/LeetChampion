@@ -1,0 +1,54 @@
+<!-- Output area for this code -->
+<div id="description-output"></div>
+
+<!-- A handlebars template to display the problem descripton-->
+{%raw%}
+<script id="description-template" type="text/x-handlebars-template">
+    <div id="problem-header">
+        <h2>{{problemNumber}}. {{problemName}}</h2>
+        <h5 id="problem-dif">{{problemDifficulty}}</h5>
+    </div>
+    <div id="problem-body">
+        {{problemDescription}}
+    </div>
+</script>
+{%endraw%}
+
+<!-- Code to render the template-->
+{%raw%}
+<script>
+    const descriptionSource = document.getElementById('description-template').innerHTML;
+    const descriptionTemplate = Handlebars.compile(descriptionSource);
+    const descriptionContext = {
+        problemNumber: "1",
+        problemName: "Two Sum",
+        problemDifficulty: "Easy",
+        problemDescription: `Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. 
+        You may assume that each input would have exactly one solution, and you may not use the same element twice. 
+        You can return the answer in any order.`
+    }; // Change context to relevant template variables
+    const descriptionHtml = descriptionTemplate(descriptionContext);
+    document.getElementById('description-output').innerHTML += descriptionHtml; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code-->
+<style>
+    .description {
+        color: #a9b7c6;
+        height: 100%;
+        width: 100%;
+    }
+    #problem-header {
+        width: 100%;
+        padding: 2vh;
+        border-bottom: 4px solid #444444;
+        background-color: #3b3b3b;
+    }
+    #problem-body {
+        padding: 2vh;
+    }
+    #problem-dif {
+        color: #00c000
+    }
+</style>

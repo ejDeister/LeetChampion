@@ -6,9 +6,15 @@
 <!-- A handlebars template of the competitor's stats (number of submits, runs, time left, etc.) -->
 {%raw%}
 <script id="stats-template" type="text/x-handlebars-template">
-    <span>Attempts - 3</span>
-    <span>Time left - 5:00</span>
-    <button type="submit" class="btn btn-success d-inline">Run</button>
+    <p id="stats-header">Stats</p>
+    <div id="stats-body">
+        <span class="stats-body-u">Attempts - 3</span>
+        <span class="stats-body-u">Time left - 5:00</span>
+        <div>
+            <button type="submit" class="btn btn-secondary d-inline">Run</button>
+            <button type="submit" class="btn btn-success d-inline">Submit</button>
+        </div>
+    </div>
 </script>
 {%endraw%}
 
@@ -25,13 +31,24 @@
 
 <!-- Styling for this block of code -->
 <style>
-    #stats-output {
+    #stats-header {
+        border-top: 4px solid #444444;
+        color: #F0F0F0;
+        background-color: #3b3b3b;
+        margin: 0;
+        padding: 0.25vw;
+        padding-left: 1.5vw;
+    }
+    #stats-body {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        min-height: 14vh;
+        border-top: 4px solid #444444;
         color: #a9b7c6;
         background-color: #2b2b2b;
-        min-height: 10vh;
-        border-top: 4px solid #444444;
+    }
+    .stats-body-u {
+        border-bottom: 2px solid #555555;
     }
 </style>

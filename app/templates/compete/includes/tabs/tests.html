@@ -1,0 +1,24 @@
+<!-- Output area for this code -->
+<div id="tests-output"></div>
+
+<!-- A handlebars template to display testcases-->
+{%raw%}
+<script id="tests-template" type="text/x-handlebars-template">
+    <div id="tests-header"></div>
+</script>
+{%endraw%}
+
+<!-- Code to render the template-->
+{%raw%}
+<script>
+    const testsSource = document.getElementById('tests-template').innerHTML;
+    const testsTemplate = Handlebars.compile(testsSource);
+    const testsContext = {}; // Change context to relevant template variables
+    const testsHtml = testsTemplate(testsContext);
+    document.getElementById('tests-output').innerHTML += testsHtml; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code-->
+<style>
+</style>

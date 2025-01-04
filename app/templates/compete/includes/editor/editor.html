@@ -8,7 +8,7 @@
 {%raw%}
 <script id="editor-template" type="text/x-handlebars-template">
     <div id='editor-div'> <!--TODO: Figure out how to handle duplicate IDs when displaying two editors (host mode) -->
-
+        <p id="editor-title">Code &lt;/&gt;</p>
         <textarea name="code" id="editor-textarea">{{placeholderText}}</textarea>
     </div>
 </script>
@@ -72,7 +72,16 @@
     }
     #editor-div {
         display: flex;
+        flex-direction: column;
         flex-grow: 1;
+    }
+    #editor-title {
+        border-bottom: 4px solid #444444;
+        color: #F0F0F0;
+        background-color: #3b3b3b;
+        margin: 0;
+        padding: 0.75vw;
+        padding-left: 1.5vw;
     }
     .CodeMirror {
         width: 100%;
